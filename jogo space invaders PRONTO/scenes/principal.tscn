@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://comp/jogador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/principal.gd" type="Script" id=2]
+[ext_resource path="res://gfx/imagem de fundo.jpeg" type="Texture" id=3]
+[ext_resource path="res://fonts/CENSCBK.TTF" type="DynamicFontData" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 33.5, 308 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.5, 309 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[node name="principal" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="jogador" parent="." instance=ExtResource( 1 )]
+position = Vector2( 479, 554 )
+
+[node name="PosInicialInimigo" type="Position2D" parent="."]
+position = Vector2( 148, 78 )
+
+[node name="parede" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parede"]
+position = Vector2( -34, 308 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="parede"]
+position = Vector2( 1062.5, 298 )
+shape = SubResource( 2 )
+
+[node name="Global" type="Label" parent="."]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 99.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 3 )
+text = "Pontuação: 0"
+
+[node name="vidas" type="Label" parent="."]
+margin_left = 119.0
+margin_top = 15.0
+margin_right = 178.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Vidas: 0"
+
+[node name="ImagemDeFundo" type="Sprite" parent="."]
+position = Vector2( 510, 297 )
+rotation = -1.57309
+scale = Vector2( 0.946802, 0.810335 )
+z_index = -1
+texture = ExtResource( 3 )

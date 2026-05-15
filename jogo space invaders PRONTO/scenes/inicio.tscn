@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/BotaoJogar.gd" type="Script" id=1]
+[ext_resource path="res://fonts/CENSCBK.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/SCHLBKB negrito.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 452.0
+margin_top = 123.0
+margin_right = 624.0
+margin_bottom = 153.0
+custom_fonts/font = SubResource( 1 )
+text = "Space invaders"
+
+[node name="Button" type="Button" parent="Label"]
+margin_left = -112.0
+margin_top = 70.0
+margin_right = 238.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 2 )
+text = "JOGAR"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Label/Button" to="Label/Button" method="_on_Button_pressed"]
